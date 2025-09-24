@@ -3,10 +3,6 @@ package com.gtnh.gtnhvariants.gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.event.world.WorldEvent;
-
-import com.gtnh.gtnhvariants.GTNHVariants;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;

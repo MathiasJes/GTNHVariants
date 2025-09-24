@@ -1,51 +1,41 @@
 package com.gtnh.gtnhvariants.mixins;
 
+import javax.annotation.Nonnull;
+
 import com.gtnewhorizon.gtnhmixins.builders.IMixins;
 import com.gtnewhorizon.gtnhmixins.builders.MixinBuilder;
 
-import javax.annotation.Nonnull;
-
-
 public enum Mixins implements IMixins {
-    FML(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+
+    FML(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("FMLCommonHandlerMixin")),
 
-    INTEGRATEDSERVER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    INTEGRATEDSERVER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("IntegratedServerMixin")),
 
-    SERVERCONFIGURATIONMANAGER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    SERVERCONFIGURATIONMANAGER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("ServerConfigurationManagerMixin")),
 
-    HELLPROVIDER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    HELLPROVIDER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("WorldProviderHellMixin")),
 
-    WORLDPROVIDER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    WORLDPROVIDER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("WorldProviderMixin")),
 
-    CHUNKPROVIDERSERVER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    CHUNKPROVIDERSERVER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("ChunkProviderServerMixin")),
 
-    BLOCKPORTAL(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    BLOCKPORTAL(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("BlockPortalMixin")),
 
-    DIMENSIONMANAGER(new MixinBuilder()
-        .setPhase(Phase.EARLY)
+    DIMENSIONMANAGER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("DimensionManagerMixin")),
-        
-    TWILIGHTFOREST(new MixinBuilder()
-        .addRequiredMod(TargetedMod.TWILIGHTFOREST)
+
+    TWILIGHTFOREST(new MixinBuilder().addRequiredMod(TargetedMod.TWILIGHTFOREST)
         .setPhase(Phase.LATE)
         .addClientMixins("TwilightForestMixin")),
 
-    GALACTICRAFTCORE(new MixinBuilder()
-        .addRequiredMod(TargetedMod.GALACTICRAFTCORE)
+    GALACTICRAFTCORE(new MixinBuilder().addRequiredMod(TargetedMod.GALACTICRAFTCORE)
         .setPhase(Phase.LATE)
         .addClientMixins("GalacticraftCoreMixin"));
 

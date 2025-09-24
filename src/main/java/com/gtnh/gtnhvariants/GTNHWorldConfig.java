@@ -3,6 +3,7 @@ package com.gtnh.gtnhvariants;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GTNHWorldConfig {
+
     private static final int CURRENT_CONFIG_VERSION = 1;
 
     public Options worldGenVariant = Options.NORMAL;
@@ -50,8 +51,7 @@ public class GTNHWorldConfig {
         return worldGenVariant == Options.GOG;
     }
 
-    private GTNHWorldConfig() {
-    }
+    private GTNHWorldConfig() {}
 
     public void SaveToNBT(NBTTagCompound nbtTagCompound) {
         NBTTagCompound gtnhTagCompound = new NBTTagCompound();
@@ -77,12 +77,12 @@ public class GTNHWorldConfig {
 
     private void ParseConfigVersionOne(NBTTagCompound nbtTagCompound) {
         worldGenVariant = Options.values()[nbtTagCompound.getInteger(NBT_OPTION_TAG)];
-        
+
         GTNHVariants.LOG.info("Loaded world config(v1). Current option: " + worldGenVariant.name());
         netherOnly = worldGenVariant == Options.NETHERONLY;
         portalsDisabled = worldGenVariant == Options.NETHERONLY || worldGenVariant == Options.GOG;
         rocketsDisabled = worldGenVariant == Options.NOROCKET || worldGenVariant == Options.NETHERONLY
-                || worldGenVariant == Options.GOG;
+            || worldGenVariant == Options.GOG;
         primaryDimension = (worldGenVariant == Options.NETHERONLY) ? -1 : 0;
     }
 }

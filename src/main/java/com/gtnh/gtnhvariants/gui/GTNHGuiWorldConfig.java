@@ -10,6 +10,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class GTNHGuiWorldConfig {
+
     private static final List<String> validOptions = Arrays
         .asList("Normal", "Garden of Grind", "Hellish Grind", "Im no Rocket Man", "Resources o'plenty");
     private static final List<String> validOptionsDesc = Arrays.asList(
@@ -18,7 +19,6 @@ public class GTNHGuiWorldConfig {
         "You spawn in and are locked to the Nether",
         "GalaxyCraft Rockets are NOT available.",
         "You get early access to Void Miners.");
-
 
     private static GTNHWorldConfig worldConfig = GTNHWorldConfig.instance();
 
@@ -36,6 +36,6 @@ public class GTNHGuiWorldConfig {
     }
 
     public static void clear() {
-        worldConfig.worldGenVariant  = GTNHWorldConfig.Options.NORMAL;
+        worldConfig.worldGenVariant = GTNHWorldConfig.Options.NORMAL;
     }
 }

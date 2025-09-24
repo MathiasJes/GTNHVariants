@@ -13,15 +13,20 @@ import com.gtnh.gtnhvariants.GTNHWorldConfig;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 
-@Mixin(FMLCommonHandler.class) 
+@Mixin(FMLCommonHandler.class)
 public abstract class FMLCommonHandlerMixin {
+
     @Inject(method = "handleWorldDataSave", at = @At("TAIL"), remap = false)
-    private void gtnhvariants$handleWorldDataSave(SaveHandler handler, WorldInfo worldInfo, NBTTagCompound tagCompound, CallbackInfo ci) {
-        GTNHWorldConfig.instance().SaveToNBT(tagCompound);
+    private void gtnhvariants$handleWorldDataSave(SaveHandler handler, WorldInfo worldInfo, NBTTagCompound tagCompound,
+        CallbackInfo ci) {
+        GTNHWorldConfig.instance()
+            .SaveToNBT(tagCompound);
     }
 
     @Inject(method = "handleWorldDataLoad", at = @At("TAIL"), remap = false)
-    private void gtnhvariants$handleWorldDataLoad(SaveHandler handler, WorldInfo worldInfo, NBTTagCompound tagCompound, CallbackInfo ci) {
-        GTNHWorldConfig.instance().LoadFromNBT(tagCompound);
+    private void gtnhvariants$handleWorldDataLoad(SaveHandler handler, WorldInfo worldInfo, NBTTagCompound tagCompound,
+        CallbackInfo ci) {
+        GTNHWorldConfig.instance()
+            .LoadFromNBT(tagCompound);
     }
 }
