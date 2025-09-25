@@ -33,15 +33,22 @@ public abstract class IntegratedServerMixin {
         String p_71247_6_, CallbackInfo ci) {
         if (GTNHWorldConfig.instance()
             .IsNetherOnly()) {
-            GTNHVariants.LOG.info("Creating Nether Spawn Point");
-            setNetherSpawnPoint(
-                DimensionManager.getWorld(OVERWORLD_DIM_ID)
-                    .getWorldInfo(),
-                DimensionManager.getProvider(NETHER_DIM_ID));
+
+            WorldInfo worldInfo = DimensionManager.getWorld(OVERWORLD_DIM_ID)
+                .getWorldInfo();
+
+            if (isSpawnUnitialized(worldInfo)) {
+                GTNHVariants.LOG.info("Creating Nether Spawn Point");
+                createNetherSpawnPoint(worldInfo, DimensionManager.getProvider(NETHER_DIM_ID));
+            }
         }
     }
 
-    private void setNetherSpawnPoint(WorldInfo worldInfo, WorldProvider provider) {
+    private boolean isSpawnUnitialized(WorldInfo worldInfo) {
+        return worldInfo.getSpawnX() == 0 && worldInfo.getSpawnY() == 0 && worldInfo.getSpawnZ() == 0;
+    }
+
+    private void createNetherSpawnPoint(WorldInfo worldInfo, WorldProvider provider) {
         Random random = new Random(worldInfo.getSeed());
 
         int x = 0;
