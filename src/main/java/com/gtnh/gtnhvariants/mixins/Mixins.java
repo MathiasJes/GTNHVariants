@@ -28,6 +28,9 @@ public enum Mixins implements IMixins {
     BLOCKPORTAL(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("BlockPortalMixin")),
 
+    ENTITYPLAYER(new MixinBuilder().setPhase(Phase.EARLY)
+        .addClientMixins("EntityPlayerMixin")),
+
     DIMENSIONMANAGER(new MixinBuilder().setPhase(Phase.EARLY)
         .addClientMixins("DimensionManagerMixin")),
 
