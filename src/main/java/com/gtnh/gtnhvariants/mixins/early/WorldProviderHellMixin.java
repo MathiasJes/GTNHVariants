@@ -11,12 +11,6 @@ import com.gtnh.gtnhvariants.GTNHWorldConfig;
 public class WorldProviderHellMixin {
 
     @Overwrite()
-    public boolean isSurfaceWorld() {
-        return GTNHWorldConfig.instance()
-            .IsNetherOnly();
-    }
-
-    @Overwrite()
     public boolean canRespawnHere() {
         return GTNHWorldConfig.instance()
             .IsNetherOnly();
