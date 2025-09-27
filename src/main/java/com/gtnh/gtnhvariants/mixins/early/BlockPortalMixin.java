@@ -14,7 +14,11 @@ import com.gtnh.gtnhvariants.GTNHWorldConfig;
 @Mixin(BlockPortal.class)
 public abstract class BlockPortalMixin {
 
-    @Inject(method = "func_150000_e", at = @At("HEAD"), cancellable = true)
+    @Inject(
+        method = "func_150000_e",
+        cancellable = true,
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockPortal$Size;func_150859_c()V")
+    )
     private void gtnhvariants$preventNetherPortal(World world, int x, int y, int z,
         CallbackInfoReturnable<Boolean> cir) {
         if (GTNHWorldConfig.instance()
